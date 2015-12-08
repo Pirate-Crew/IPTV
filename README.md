@@ -11,6 +11,11 @@ ho capito come raggirarli XD
 
 #### Questo script è a scopo di TEST, NON USATELO COCCODIO XD
 
+#### QUESTIONE ETICA
+Anche se questi servizi sono palesemente irregolari,
+Rubare ai ladri equivale sempre a rubare
+
+
 ### Version
 0.1
 
