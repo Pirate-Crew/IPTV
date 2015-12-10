@@ -13,7 +13,7 @@ ho capito come raggirarli XD
 
 #### QUESTIONE ETICA
 Anche se questi servizi sono palesemente irregolari,
-Rubare ai ladri equivale sempre a rubare
+Rubare è pur sempre a rubare
 
 
 ### Version
