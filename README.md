@@ -1,7 +1,7 @@
 # IPTV
 Partendo da una banale ricerca su Google del tipo "iptv"
 mi sono accorto che ci sono un sacco di servizi che 
-vendono pacchetti tv, e lo fanno illegalemnte...
+vendono pacchetti tv, e lo fanno illegalmente...
 Una ricerca più approfondita mi ha fatto notare che
 esiste una sorta di CMS per distribuire questo tipo di
 servizi... o.O 
