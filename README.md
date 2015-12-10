@@ -13,7 +13,7 @@ ho capito come raggirarli XD
 
 #### QUESTIONE ETICA
 Anche se questi servizi sono palesemente irregolari,
-Rubare è pur sempre a rubare
+la questione morale va sempre valutata.
 
 
 ### Version
