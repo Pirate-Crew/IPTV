@@ -34,7 +34,7 @@ e lanciate il tool scrivendo python iptv.py -h
 con questo comando, come anche omettendo il -h 
 vi dirà come si usa... ossia per cercare i server
 python iptv.py -pl (che sta per print list)
-per l'aciare l'attacco forza bruta, python iptv.py http://linck.che.volete:00voi
+per lanciare l'attacco forza bruta, python iptv.py http://linck.che.volete:00voi
 
 License
 ----
