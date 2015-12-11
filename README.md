@@ -25,6 +25,7 @@ usate il metodo che volete... ma pip andrà benissimo
 
 pip install google
 pip install pyprind
+pip install psutil
 
 ### COME SI USA
 è uno script, recatevi da terminale nella root dello script
