@@ -32,6 +32,7 @@ from sys import argv as s
 #Parameters
 search = "Xtream Codes v1.0.59.5"
 names = "names.txt"
+directory = "output"
 
 
 def print_link():
@@ -58,8 +59,8 @@ def search_account(URL):
         bar.update()
         if len(the_page) > 0:
             tr = (tr + 1)
-            os.makedirs(URL.replace("http://", ""))
-            out_file = open(str(URL.replace("http://", "")) + "/" + "output/tv_channels_%s.m3u" % r.rstrip().lstrip(), "w")
+            os.makedirs(directory + "/" + URL.replace("http://", ""))
+            out_file = open(str(URL.replace("http://", "")) + "/" + directory + "/tv_channels_%s.m3u" % r.rstrip().lstrip(), "w")
             out_file.write(the_page)
             out_file.close()
     trov = (str(tr))
