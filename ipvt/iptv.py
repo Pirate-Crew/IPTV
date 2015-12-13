@@ -59,8 +59,10 @@ def search_account(URL):
         bar.update()
         if len(the_page) > 0:
             tr = (tr + 1)
-            os.makedirs(directory + "/" + URL.replace("http://", ""))
-            out_file = open(str(URL.replace("http://", "")) + "/" + directory + "/tv_channels_%s.m3u" % r.rstrip().lstrip(), "w")
+            new_path = directory + "/" + URL.replace("http://", "")
+            if os.path.exists(new_path) is False:
+                os.makedirs(new_path)
+            out_file = open(str(new_path) + "/tv_channels_%s.m3u" % r.rstrip().lstrip(), "w")
             out_file.write(the_page)
             out_file.close()
     trov = (str(tr))
