@@ -1,28 +1,26 @@
 # IPTV
-Partendo da una banale ricerca su Google del tipo "iptv"
-mi sono accorto che ci sono un sacco di servizi che 
-vendono pacchetti tv, e lo fanno illegalmente...
 
-Una ricerca più approfondita mi ha fatto notare che
-esiste una sorta di CMS per distribuire questo tipo di
-servizi... o.O 
+IPTV is a simple python script that let you crawl the search engines
+in order to fetch those sites that stream illegal tv programs.
 
-Ho notato che ci sono siti che rilasciano url per 
-vedere partite etc etc, e guardando bene gli url,
-ho capito come raggirarli XD
+This script leverage the fact the a lot of those sites use the same
+CMS to create the web application and sharing the service, behind a CMS there's
+always some exploits.
 
-#### Questo script è a scopo di TEST, NON USATELO COCCODIO XD
+We are using one simple exploit to grab and crawl the site's url and use for our
+purpose.
 
-#### QUESTIONE ETICA
-Anche se questi servizi sono palesemente irregolari,
-Rubare ai ladri equivale sempre a rubare
+# How to use
 
+* Clone the repository `git clone git@github.com:Pinperepette/IPTV.git`
+* `cd` into `IPTV`
+* run `pip install -r requirements.txt` in order to get the full dependencies
+* run `python iptv.pl -h`
 
-### Version
-0.1
+## This program is just a demonstration. DO NOT USE IT FOR PERSONAL purpose ##
 
+### We are not responsible of the usage ###
 
-License
-----
-MIT
-**Free Software, Hell Yeah!**
+## Ethical Dilemma
+
+Even though those services are illegal, stealing from a thief is still stealing.
