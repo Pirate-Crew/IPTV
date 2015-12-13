@@ -1,12 +1,10 @@
 # IPTV
-
 IPTV is a simple python script that let you crawl the search engines
 in order to fetch those sites that stream illegal tv programs.
 
 This script leverage the fact the a lot of those sites use the same
 CMS to create the web application and sharing the service, behind a CMS there's
 always some exploits.
-
 We are using one simple exploit to grab and crawl the site's url and use for our
 purpose.
 
