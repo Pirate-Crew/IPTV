@@ -29,7 +29,7 @@ import urllib2, google, time, pyprind , sys, os
 from urlparse import urlparse
 from sys import argv as s
 
-#parametri editabili
+#Parameters
 search = "Xtream Codes v1.0.59.5"
 names = "names.txt"
 
@@ -59,7 +59,7 @@ def search_account(URL):
         if len(the_page) > 0:
             tr = (tr + 1)
             os.makedirs(URL.replace("http://", ""))
-            out_file = open(str(URL.replace("http://", "")) + "/" + "/tv_channels_%s.m3u" % r.rstrip().lstrip(), "w")
+            out_file = open(str(URL.replace("http://", "")) + "/" + "output/tv_channels_%s.m3u" % r.rstrip().lstrip(), "w")
             out_file.write(the_page)
             out_file.close()
     trov = (str(tr))
