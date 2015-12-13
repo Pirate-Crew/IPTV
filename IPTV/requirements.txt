@@ -1,0 +1,2 @@
+pyprind==2.9.3
+google==1.7
