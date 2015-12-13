@@ -25,7 +25,7 @@
 
 #by Pinperepette - The Pirate
 
-import urllib2, google, time, pyprind ,sys
+import urllib2, google, time, pyprind , sys, os
 from urlparse import urlparse
 from sys import argv as s
 
