@@ -13,7 +13,7 @@ purpose.
 * Clone the repository `git clone git@github.com:Pinperepette/IPTV.git`
 * `cd` into `IPTV`
 * run `pip install -r requirements.txt` in order to get the full dependencies
-* run `python iptv.pl -h`
+* run `python iptv.py -h`
 
 ## This program is just a demonstration. DO NOT USE IT FOR PERSONAL purpose ##
 
