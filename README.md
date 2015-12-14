@@ -1,3 +1,5 @@
+#BETA
+
 # IPTV
 IPTV is a simple python script that let you crawl the search engines
 in order to fetch those sites that stream illegal tv programs.
@@ -7,13 +9,6 @@ CMS to create the web application and sharing the service, behind a CMS there's
 always some exploits.
 We are using one simple exploit to grab and crawl the site's url and use for our
 purpose.
-
-# How to use
-
-* Clone the repository `git clone git@github.com:Pinperepette/IPTV.git`
-* `cd` into `IPTV`
-* run `pip install -r requirements.txt` in order to get the full dependencies
-* run `python iptv.py -h`
 
 ###--------------------------------------------------------------------------
 ###          Works on Linux, Windows, Mac OSX, BSD
