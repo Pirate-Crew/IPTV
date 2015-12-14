@@ -15,6 +15,10 @@ purpose.
 * run `pip install -r requirements.txt` in order to get the full dependencies
 * run `python iptv.py -h`
 
+###--------------------------------------------------------------------------
+###          Works on Linux, Windows, Mac OSX, BSD
+###--------------------------------------------------------------------------
+
 ## This program is just a demonstration. DO NOT USE IT FOR PERSONAL purpose ##
 
 ### We are not responsible of the usage ###
