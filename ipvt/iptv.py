@@ -25,64 +25,33 @@
 
 #by Pinperepette - The Pirate
 
-import urllib2, google, time, pyprind , sys, os
-from urlparse import urlparse
+import Crawler
+from clint.textui import colored
 from sys import argv as s
 
 #Parameters
+version = "v1.0"
 search = "Xtream Codes v1.0.59.5"
-names = "names.txt"
-directory = "output"
+cr = Crawler.Crawler("it")
 
-
-def print_link():
-    for url in google.search(search, num = 30, stop = 1):
-        parsed = urlparse(url)
-        print(parsed.scheme + "://" + parsed.netloc + "\n")
-
-
-def search_account(URL):
-    rows = open(names , "r")
-    NR = len(rows.readlines())
-    TT = (str(NR))
-    n = NR
-    bar = pyprind.ProgBar(n, title = " ", stream = 1, monitor = True)
-    tr = 0
-    with open(names) as f:
-        content = f.readlines()
-    for r in content:
-        req = urllib2.Request( URL + "/get.php?username=%s&password=%s&type=m3u&output=mpegts" % (r.rstrip().lstrip(), r.rstrip().lstrip()))
-        response = urllib2.urlopen(req)
-        the_page = response.read()
-        NR = (NR - 1)
-        TM = (str(NR))
-        bar.update()
-        if len(the_page) > 0:
-            tr = (tr + 1)
-            new_path = directory + "/" + URL.replace("http://", "")
-            if os.path.exists(new_path) is False:
-                os.makedirs(new_path)
-            out_file = open(str(new_path) + "/tv_channels_%s.m3u" % r.rstrip().lstrip(), "w")
-            out_file.write(the_page)
-            out_file.close()
-    trov = (str(tr))
-    print ("Accounts found: " + trov)
-
-def usage():
-
-    print "##### IPTV"
-    print "##### Basic Usage"
-    print ("Print the servers list: " + s[0] + " " + "-pl")
-    print ("Account search: " + s[0] + " " + "http://site.server")
+def menu():
+    print colored.yellow("################")
+    print colored.yellow("##### ") + s[0] + colored.yellow(" ##")
+    print colored.yellow("##### ") + version + colored.yellow(" #####")
+    print colored.yellow("################")
+    print ""
+    print colored.blue("Basic Usage")
+    print "Print the servers list: " + colored.red(s[0] + " " + "-pl")
+    print "Account search: " + colored.red(s[0] + " " + "http://site.server")
 
 if len(s) == 1:
-    usage()
+    menu()
     exit()
-if s[1] == "-h":
-    usage()
+elif s[1] == "-h":
+    menu()
     exit()
-if s[1] == "-pl":
-    print_link()
+elif s[1] == "-pl":
+    cr.search_links()
     exit()
-
-search_account(s[1])
+else:
+    cr.search_accounts(s[1])
