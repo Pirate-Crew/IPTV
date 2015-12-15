@@ -5,8 +5,7 @@ import pyprind
 import os
 from urlparse import urlparse
 from clint.textui import colored
-from sys import argv as s
-from itertools import (takewhile,repeat)
+from itertools import takewhile,repeat
 
 """Crawler
 Class that handles the crawling process that fetch accounts on illegal IPTVs
@@ -68,7 +67,7 @@ class Crawler(object):
                 # we build the dedicated .m3u file
                 if len(fetched) > 0:
                     newPath = self.outputDir + "/" + url.replace("http://", "")
-                    self.create_file(row, newPath)
+                    self.create_file(row, newPath, fetched)
         except IOError:
             print colored.red("Cannot open the current Language file. Try another one")
         except urllib2.HTTPError, e:
@@ -85,9 +84,10 @@ class Crawler(object):
 
     """Create File
     Once the parse founds something worth it, we need to create the .m3u file
-    to do so we except a newPath and the current row used from names file
+    to do so we except a newPath and the current row used from names file and also
+    the content from the fetched response
     """
-    def create_file(self, row, newPath):
+    def create_file(self, row, newPath, fetched):
         if os.path.exists(newPath) is False:
             os.makedirs(newPath)
         outputFile = open(str(newPath) + "/tv_channels_%s.m3u" % row.rstrip().lstrip(), "w")
