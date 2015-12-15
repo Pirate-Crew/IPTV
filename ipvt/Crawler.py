@@ -8,24 +8,30 @@ from clint.textui import colored
 from sys import argv as s
 from itertools import (takewhile,repeat)
 
+"""Crawler
+Class that handles the crawling process that fetch accounts on illegal IPTVs
+@author: Claudio Ludovico Panetta (@ludo237)
+@revision: Pinperepette (@Pinperepette)
+"""
 class Crawler(object):
     outputDir = "output"
     basicString = "/get.php?username=%s&password=%s&type=m3u&output=mpegts"
     searchString = "Xtream Codes v1.0.59.5"
 
     """Default constructor
-    Language
+    Language parameter allows us to understand what kind of names file we need to use
     """
     def __init__(self, language = "it"):
         self.language = language.lower()
         self.parsedUrls = list()
+        self.foundedAccounts = 0
 
     """Search Links
     Print the first 30 links from a Google search
     We set the limit of 30 links because this script serve as demonstration and it's
     not intended to be use for personal purpose.
 
-    The URLs will be printed on terminal screen without saving
+    The URLs will be printed on terminal screen without saving.
     """
     def search_links(self):
         print colored.green("Fetching URLs plase wait...")
@@ -62,26 +68,33 @@ class Crawler(object):
                 # we build the dedicated .m3u file
                 if len(fetched) > 0:
                     newPath = self.outputDir + "/" + url.replace("http://", "")
-                    if os.path.exists(newPath) is False:
-                        os.makedirs(newPath)
-                    outputFile = open(str(newPath) + "/tv_channels_%s.m3u" % row.rstrip().lstrip(), "w")
-                    outputFile.write(fetched)
-                    foundedAccounts = foundedAccounts + 1
-                    outputFile.close()
+                    self.create_file(row, newPath)
         except IOError:
             print colored.red("Cannot open the current Language file. Try another one")
         except urllib2.HTTPError, e:
             print colored.red("Ops, HTTPError exception here. Cannot fetch the current URL " + str(e.code))
         except urllib2.URLError, e:
             print colored.red("Ops, the URL seems broken." + str(e.reason))
-        #except Exception:
-        #    print colored.red("Damn an error occurred during the process")
+        except Exception:
+            print colored.red("Damn an error occurred during the process")
         finally:
             if foundedAccounts != 0:
                 print colored.green("Search done, account founded on " + url + ": " + str(foundedAccounts))
             else:
                 print colored.red("No results for " + url)
-    
+
+    """Create File
+    Once the parse founds something worth it, we need to create the .m3u file
+    to do so we except a newPath and the current row used from names file
+    """
+    def create_file(self, row, newPath):
+        if os.path.exists(newPath) is False:
+            os.makedirs(newPath)
+        outputFile = open(str(newPath) + "/tv_channels_%s.m3u" % row.rstrip().lstrip(), "w")
+        outputFile.write(fetched)
+        self.foundedAccounts = self.foundedAccounts + 1
+        outputFile.close()
+
     """File Length
     Cheapest way to calculate the rows of a file
     """
