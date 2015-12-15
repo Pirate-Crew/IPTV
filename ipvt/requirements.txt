@@ -1,3 +1,4 @@
 pyprind==2.9.3
 google==1.7
 psutil==3.3.0
+clint==0.5.1
