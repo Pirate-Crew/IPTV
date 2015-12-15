@@ -75,10 +75,10 @@ class Crawler(object):
         except urllib2.URLError, e:
             print colored.red("Ops, the URL seems broken." + str(e.reason))
         except Exception:
-            print colored.red("Damn an error occurred during the process")
+            print colored.red("Ops something went wrong!")
         finally:
-            if foundedAccounts != 0:
-                print colored.green("Search done, account founded on " + url + ": " + str(foundedAccounts))
+            if self.foundedAccounts != 0:
+                print colored.green("Search done, account founded on " + url + ": " + str(self.foundedAccounts))
             else:
                 print colored.red("No results for " + url)
 
