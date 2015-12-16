@@ -1,7 +1,9 @@
 #!/usr/bin/python
 import Crawler
+import warnings
 from clint.textui import colored
 
+warnings.filterwarnings("ignore")
 cr = Crawler.Crawler("it")
 
 """Print menu
