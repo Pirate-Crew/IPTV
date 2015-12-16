@@ -77,6 +77,8 @@ class Crawler(object):
                 if len(fetched) > 0:
                     newPath = self.outputDir + "/" + url.replace("http://", "")
                     self.create_file(row, newPath, fetched)
+            # Remove the current used url in order to avoid to parse it again
+            self.parsedUrls.remove(url)
         except IOError:
             return "Cannot open the current Language file. Try another one"
         except urllib2.HTTPError, e:
