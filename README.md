@@ -11,9 +11,9 @@ purpose.
 # How to use
 
 * Clone the repository `git clone git@github.com:Pinperepette/IPTV.git`
-* `cd` into `IPTV`
+* `cd` into `iptv`
 * run `pip install -r requirements.txt` in order to get the full dependencies
-* run `python iptv.py -h`
+* run `python iptv.py`
 
 ###--------------------------------------------------------------------------
 ###          Works on Linux, Windows, Mac OSX, BSD
