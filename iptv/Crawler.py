@@ -3,9 +3,8 @@ import google
 import time
 import pyprind
 import os
+import random
 from urlparse import urlparse
-from clint.textui import colored
-from itertools import takewhile,repeat
 
 """Crawler
 Class that handles the crawling process that fetch accounts on illegal IPTVs
@@ -22,8 +21,17 @@ class Crawler(object):
     """
     def __init__(self, language = "it"):
         self.language = language.lower()
-        self.parsedUrls = list()
+        self.parsedUrls = []
         self.foundedAccounts = 0
+
+    """Change Language
+    Set the language you want to use to brute force names
+    """
+    def change_language(self, language = "it"):
+        # At the moment this will be hardcoded to IT because we don't have
+        # other lists...
+        self.language = "it"
+        return "Language changed"
 
     """Search Links
     Print the first 30 links from a Google search
@@ -33,12 +41,10 @@ class Crawler(object):
     The URLs will be printed on terminal screen without saving.
     """
     def search_links(self):
-        print colored.green("Fetching URLs plase wait...")
         # 30 results and stop at the first page
         for url in google.search(self.searchString, num=30, stop=1):
             parsed = urlparse(url)
-            print parsed.scheme + "://" + parsed.netloc
-        print colored.green("Done, 30 URLs founded")
+            self.parsedUrls.append(parsed.scheme + "://" + parsed.netloc)
 
     """Search Accounts
     This is the core method. It will crawl the give url for any possible accounts
@@ -46,8 +52,11 @@ class Crawler(object):
     of the site plus every account as five .m3u. Please use VLC for opening that
     kind of files
     """
-    def search_accounts(self, url):
+    def search_accounts(self):
+        if not self.parsedUrls:
+            return "You must fetch some URLs first"
         try:
+            url = random.choice(self.parsedUrls)
             fileName = "names/" + self.language + ".txt"
             fileLength = self.file_length(fileName)
             progressBar = pyprind.ProgBar(fileLength, title = "Fetching accunts on URL: " + url + " this might take a while.", stream = 1, monitor = True)
@@ -69,18 +78,18 @@ class Crawler(object):
                     newPath = self.outputDir + "/" + url.replace("http://", "")
                     self.create_file(row, newPath, fetched)
         except IOError:
-            print colored.red("Cannot open the current Language file. Try another one")
+            return "Cannot open the current Language file. Try another one"
         except urllib2.HTTPError, e:
-            print colored.red("Ops, HTTPError exception here. Cannot fetch the current URL " + str(e.code))
+            return "Ops, HTTPError exception here. Cannot fetch the current URL " + str(e.code)
         except urllib2.URLError, e:
-            print colored.red("Ops, the URL seems broken." + str(e.reason))
+            return "Ops, the URL seems broken." + str(e.reason)
         except Exception:
-            print colored.red("Ops something went wrong!")
+            return "Ops something went wrong!"
         finally:
             if self.foundedAccounts != 0:
-                print colored.green("Search done, account founded on " + url + ": " + str(self.foundedAccounts))
+                return "Search done, account founded on " + url + ": " + str(self.foundedAccounts)
             else:
-                print colored.red("No results for " + url)
+                return "No results for " + url
 
     """Create File
     Once the parse founds something worth it, we need to create the .m3u file
