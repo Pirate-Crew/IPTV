@@ -52,6 +52,17 @@ class Crawler(object):
     of the site plus every account as five .m3u. Please use VLC for opening that
     kind of files
     """
+<<<<<<< HEAD
+    def search_accounts(self, url):
+        if not self.parsedUrls:
+            return "You must fetch some URLs first"
+        try:
+            if not url:
+                url = random.choice(self.parsedUrls)
+            fileName = "names/" + self.language + ".txt"
+            fileLength = self.file_length(fileName)
+            progressBar = pyprind.ProgBar(fileLength, title = "Fetching account from " + url + " this might take a while.", stream = 1, monitor = True)
+=======
     def search_accounts(self):
         if not self.parsedUrls:
             return "You must fetch some URLs first"
@@ -60,6 +71,7 @@ class Crawler(object):
             fileName = "names/" + self.language + ".txt"
             fileLength = self.file_length(fileName)
             progressBar = pyprind.ProgBar(fileLength, title = "Fetching accunts on URL: " + url + " this might take a while.", stream = 1, monitor = True)
+>>>>>>> master
             foundedAccounts = 0
             with open(fileName) as f:
                 rows = f.readlines()
