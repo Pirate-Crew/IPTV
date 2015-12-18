@@ -31,12 +31,8 @@ on Ubuntu/Debian `sudo apt-get install pyqt4-dev-tools`
 * Clone the repository `git clone git@github.com:Pinperepette/IPTV.git`
 * `cd` into `iptv`
 * run `pip install -r requirements.txt` in order to get the full dependencies
-<<<<<<< HEAD
 * run `python iptv_cli.py`
 * Use the application menu to do stuff
-=======
-* run `python iptv.py`
->>>>>>> master
 
 ## How to use the GUI version
 
