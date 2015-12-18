@@ -6,7 +6,6 @@ from clint.textui import colored
 # Global Variables
 warnings.filterwarnings("ignore")
 cr = Crawler.Crawler("it")
-cr.search_links()
 
 """Print menu
 Easy menu for CLI navigation
