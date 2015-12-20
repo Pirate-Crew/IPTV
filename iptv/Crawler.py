@@ -52,7 +52,7 @@ class Crawler(object):
     of the site plus every account as five .m3u. Please use VLC for opening that
     kind of files
     """
-    def search_accounts(self, url):
+    def search_accounts(self, url = None):
         if not self.parsedUrls:
             return "You must fetch some URLs first"
         try:
