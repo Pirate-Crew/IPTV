@@ -23,7 +23,7 @@ If you want to use the `iptv_gui` version you need to install `PyQt` first
 
 * On Linux you can simply search it from your preferred package manager, for example
 on Ubuntu/Debian `sudo apt-get install pyqt4-dev-tools`
-* On Mac OSX you can use *brew* to install it `brew install pytq`
+* On Mac OSX you can use *brew* to install it `brew install sip` && `brew install pytq`
 * On Windows yu can download the official .exe from the PyQt site.
 
 ## How to use the CLI version
