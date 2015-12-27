@@ -35,6 +35,7 @@ while True:
     elif choosenMenu == 1:
         print colored.green("Fetching URLs plase wait...")
         cr.search_links()
+        cr.add_links()
         print colored.green("Done, 30 URLs founded")
     elif choosenMenu == 2:
         print colored.green("Printing server list")
