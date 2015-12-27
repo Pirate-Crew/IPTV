@@ -127,6 +127,7 @@ class GenericThread(QtCore.QThread):
 if __name__ == "__main__":
     import sys
     cr.search_links()
+    cr.add_links()
     app = QtGui.QApplication(sys.argv)
     Form = QtGui.QWidget()
     ui = Ui_Form()
