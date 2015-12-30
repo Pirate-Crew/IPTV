@@ -46,6 +46,12 @@ class Crawler(object):
             parsed = urlparse(url)
             self.parsedUrls.append(parsed.scheme + "://" + parsed.netloc)
 
+    def add_links(self):
+        file = open("servers.txt", "r")
+        for url in file.readlines():
+            parsed = urlparse(url)
+            self.parsedUrls.append(parsed.scheme + "://" + parsed.netloc)
+
     """Search Accounts
     This is the core method. It will crawl the give url for any possible accounts
     If we found any we will create a new directory under /output with the name
