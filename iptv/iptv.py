@@ -97,6 +97,6 @@ if __name__ == "__main__":
 		app.search_account(s[1])
 	except KeyboardInterrupt:
 		segale_giallo = colored ('[*]','yellow')
-		print (' ' + segale_giallo + ' IPTV Attack Interrupted')
+		print ("\r" + segale_giallo + ' IPTV Attack Interrupted')
 		sys.exit(0)
 
