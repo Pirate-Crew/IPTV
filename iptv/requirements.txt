@@ -3,3 +3,4 @@ google==1.7
 psutil==3.3.0
 clint==0.5.1
 colored==1.2.1
+tqdm==3.4.0
