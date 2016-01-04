@@ -65,7 +65,6 @@ class IPTV(object):
 			time.sleep(0.2)
 			if len(the_page) > 0:
 				tr = (tr + 1)
-				new_path = self.directory + "/" + URL.replace("http://", "")
 				msg = (segale_verde + " Account found: ")
 				print (msg + str(tr))
 				new_path = self.directory + "/" + URL.replace("http://", "")
