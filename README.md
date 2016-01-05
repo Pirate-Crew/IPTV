@@ -1,6 +1,7 @@
 # IPTV
 
    This program is just a demonstration. DO NOT USE IT FOR PERSONAL purpose
+   
 
 ## What is this?
 
@@ -16,6 +17,11 @@ purpose.
 ## Ethical Dilemma
 
 Even though those services are illegal, stealing from a thief is still stealing.
+
+## Branch Dev
+[Branch Dev!](https://github.com/Pinperepette/IPTV/tree/Gui_dev)
+
+![alt tag](https://raw.githubusercontent.com/Pinperepette/IPTV/Gui_dev/screenshot/cattura.png)
 
 ## External dependencies
 
