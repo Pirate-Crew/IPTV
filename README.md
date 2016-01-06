@@ -3,8 +3,6 @@
    This program is just a demonstration. DO NOT USE IT FOR PERSONAL purpose
    
 
-![alt tag](screenshot/cattura.png)
-
 ## What is this?
 
 IPTV is a simple python script that let you crawl the search engines
@@ -32,11 +30,13 @@ on Ubuntu/Debian `sudo apt-get install pyqt4-dev-tools`
 
 ## How to use the CLI version
 
-* Clone the repository `git clone https://github.com/Pinperepette/IPTV`
+* Clone the repository `git clone git@github.com:Pinperepette/IPTV.git`
 * `cd` into `iptv`
 * run `pip install -r requirements.txt` in order to get the full dependencies
-* run `python iptv_cli.py`
+* run `python iptv.py`
 * Use the application menu to do stuff
+
+![alt tag](screenshot/cattura.png)
 
 ## How to use the GUI version
 
