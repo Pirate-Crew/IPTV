@@ -95,12 +95,6 @@ class IPTV(object):
 				out_file.write(the_page)
 				out_file.close()
 
-	def menu(self):
-		print ('##### USAGE #####')
-		print ("for print list server " + s[0] + " " + "-pl")
-		print ("for search account " + s[0] + " " + "http://site.server")
-
-
 def menu():
     try:
         print "-= IPTV =-"
