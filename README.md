@@ -51,4 +51,4 @@ on Ubuntu/Debian `sudo apt-get install pyqt4-dev-tools`
 ## Compatibility
 
 This program work on Window, Linux, Mac OSX and BSD. The only requirement is
-python, better if python 3!
+python, better if python 2!
