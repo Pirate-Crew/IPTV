@@ -1,14 +1,9 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-import urllib2
-import urllib
-import google
+import urllib2, urllib, google, sys, os, time
 from urlparse import urlparse
-import sys
-import os
 from sys import argv as s
-import time
 from tqdm import tqdm
 from termcolor import colored
 
