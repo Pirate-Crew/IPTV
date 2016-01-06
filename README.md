@@ -20,7 +20,6 @@ purpose.
 
 Even though those services are illegal, stealing from a thief is still stealing.
 
-![alt tag](https://raw.githubusercontent.com/Pinperepette/IPTV/Gui_dev/screenshot/cattura.png)
 
 ## External dependencies
 
