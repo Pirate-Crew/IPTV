@@ -37,23 +37,24 @@ class IPTV(object):
 
 	def search_pastebin(self):
 	       	dork = "site:pastebin.com m3u sky .ts"
-	        print "[i] Dorking google..."
+	       	info_giallo = colored ('[i]','yellow')
+	        print (info_giallo + " Dorking google...")
 	        url = google.search(dork, num=30, start=0, stop=None, pause=2.0)
+	        with IPTV(stdout=devnull, stderr=devnull):
+		        for x in url:
+		       		s = x.split("http://pastebin.com/")
 
-	        for x in url:
-	       		s = x.split("http://pastebin.com/")
-
-        		if(len(s)>1):
-	        	    	if s[1].find("/") == -1:
-	        	        	print "[i] Downloading pastie: " + s[1]
-        		    		raw_url = "http://pastebin.com/raw/" + s[1]
+	        		if(len(s)>1):
+		        	    	if s[1].find("/") == -1:
+		        	        	#print "[i] Downloading pastie: " + s[1]
+	        		    		raw_url = "http://pastebin.com/raw/" + s[1]
+			
+			                	request = urllib2.urlopen(raw_url)
+		        	        	response = request.read()
 		
-		                	request = urllib2.urlopen(raw_url)
-	        	        	response = request.read()
-	
-			               	f = open("output_p/"+s[1]+".m3u", "w")
-		       	        	f.write(response)
-		        	    	f.close()
+				               	f = open("output_p/"+s[1]+".m3u", "w")
+			       	        	f.write(response)
+			        	    	f.close()
 
 	def search_account(self,URL, b=1, bsize=1):
 		segale_rosso = colored ('[*]','red')
@@ -94,10 +95,14 @@ def menu():
     try:
         print "-= IPTV =-"
         print
-        print "[1] Print server list"
-        print "[2] Brute force server"
-        print "[3] Pastebin crawl"
-        print "[4] Quit"
+        uno = colored ('[1]','green')
+        print (uno + " Print server list")
+        due = colored ('[2]','green')
+        print (due + " Brute force server")
+        tre = colored ('[3]','green')
+        print (tre + " Pastebin crawl")
+        quattro = colored ('[4]','red')
+        print (quattro + " Quit")
         print
         selection = input("Select an option: ")
 
