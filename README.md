@@ -20,9 +20,6 @@ purpose.
 
 Even though those services are illegal, stealing from a thief is still stealing.
 
-## Branch Dev
-[Branch Dev!](https://github.com/Pinperepette/IPTV/tree/Gui_dev)
-
 ![alt tag](https://raw.githubusercontent.com/Pinperepette/IPTV/Gui_dev/screenshot/cattura.png)
 
 ## External dependencies
