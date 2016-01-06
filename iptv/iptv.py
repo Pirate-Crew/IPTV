@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import urllib2
+import urllib
 import google
 from urlparse import urlparse
 import sys
@@ -39,6 +40,26 @@ class IPTV(object):
 		time.sleep(1)
 		print '\n'.join(self.parsedUrls)
 
+	def search_pastebin(self):
+	       	dork = "site:pastebin.com m3u sky .ts"
+	        print "[i] Dorking google..."
+	        url = google.search(dork, num=30, start=0, stop=None, pause=2.0)
+
+	        for x in url:
+	       		s = x.split("http://pastebin.com/")
+
+        		if(len(s)>1):
+	        	    	if s[1].find("/") == -1:
+	        	        	print "[i] Downloading pastie: " + s[1]
+        		    		raw_url = "http://pastebin.com/raw/" + s[1]
+		
+		                	request = urllib2.urlopen(raw_url)
+	        	        	response = request.read()
+	
+			               	f = open("output_p/"+s[1]+".m3u", "w")
+		       	        	f.write(response)
+		        	    	f.close()
+
 	def search_account(self,URL, b=1, bsize=1):
 		segale_rosso = colored ('[*]','red')
 		segale_verde = colored ('[*]','green')
@@ -47,7 +68,7 @@ class IPTV(object):
 		last_b = [0]
 		righe = open( self.lista ,'r')
 		tsize = len(righe.readlines())
-		TT = (str(tsize))		
+		TT = (str(tsize))
 		t.total = tsize
 		tr = 0
 		with open(self.lista) as f:
@@ -74,28 +95,50 @@ class IPTV(object):
 				out_file.write(the_page)
 				out_file.close()
 
-	def usage(self):
+	def menu(self):
 		print ('##### USAGE #####')
 		print ("for print list server " + s[0] + " " + "-pl")
 		print ("for search account " + s[0] + " " + "http://site.server")
 
 
-if __name__ == "__main__":
-	try: 
-		app = IPTV()
-		devnull = open(os.devnull, 'w')
-		if len(s) == 1:
-			app.usage()
-			exit()
-		if s[1] == '-h':
-			app.usage()
-			exit()
-		if s[1] == '-pl':
-			app.print_link()
-			exit()  
-		app.search_account(s[1])
-	except KeyboardInterrupt:
-		segale_giallo = colored ('[*]','yellow')
-		print ("\r" + segale_giallo + ' IPTV Attack Interrupted')
-		sys.exit(0)
+def menu():
+    try:
+        print "-= IPTV =-"
+        print
+        print "[1] Print server list"
+        print "[2] Brute force server"
+        print "[3] Pastebin crawl"
+        print "[4] Quit"
+        print
+        selection = input("Select an option: ")
 
+        if(selection==1):
+            app.print_link()
+            menu()
+
+        elif(selection==2):
+            server = raw_input("Server url: ")
+            app.search_account(server)
+            menu()
+
+        elif(selection==3):
+            app.search_pastebin()
+            menu()
+
+        elif(selection==4):
+            sys.exit(0)
+
+        else:
+            print "[!] Invalid option"
+            menu()
+
+    except KeyboardInterrupt:
+        segale_giallo = colored ('[*]','yellow')
+        print ("\r" + segale_giallo + ' IPTV Attack Interrupted')
+        sys.exit(0)
+
+if __name__ == "__main__":
+    print "- Code by: @Pinperepette @Arm4x @Ludo237"
+    app = IPTV()
+    devnull = open(os.devnull, 'w')
+    menu()
