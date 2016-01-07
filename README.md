@@ -48,7 +48,7 @@ on Ubuntu/Debian `sudo apt-get install pyqt4-dev-tools`
 * run `python iptv_gui.py`
 * you can see an example of the GUI in the image below
 
-![alt tag](screenshot/cli.jpg)
+![alt tag](screenshot/gui.png)
 
 ## Compatibility
 
