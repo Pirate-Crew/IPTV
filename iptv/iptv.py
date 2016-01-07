@@ -12,7 +12,7 @@ class IPTV(object):
 		self._stdout = stdout or sys.stdout
 		self._stderr = stderr or sys.stderr
 		self.lista = 'names.txt'
-		self.query = 'Xtream Codes v1.0.59.5'
+		self.query = 'Xtream Codes v1.0.59.5 Copyright 2014-2015'
 		self.directory = "output"
 		self.msg = "Pirate IPTV"
 		self.parsedUrls = ['']
