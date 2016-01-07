@@ -50,7 +50,6 @@ class Crawler(object):
         else:
             return False
 
-
     def search_links(self):
         """Print the first 30 links from a Web search
 
