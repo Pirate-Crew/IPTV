@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-import urllib2, urllib, google, sys, os, time
+import urllib2, urllib, google, sys, os, time , censys
 from urlparse import urlparse
 from sys import argv as s
 from tqdm import tqdm
@@ -34,6 +34,9 @@ class IPTV(object):
 				self.parsedUrls.append(parsed.scheme + '://' + parsed.netloc +"\n")
 		time.sleep(1)
 		print '\n'.join(self.parsedUrls)
+
+	def search_censys(self):
+		censys_result = censys.censys(1)
 
 	def search_pastebin(self):
 	       	dork = "site:pastebin.com m3u sky .ts"
@@ -101,8 +104,10 @@ def menu():
         print (due + " Brute force server")
         tre = colored ('[3]','green')
         print (tre + " Pastebin crawl")
-        quattro = colored ('[4]','red')
-        print (quattro + " Quit")
+        quattro = colored ('[4]','green')
+        print (quattro + " Censys Search")
+        cinque = colored ('[5]','red')
+        print (cinque + " Quit")
         print
         selection = input("Select an option: ")
 
@@ -120,6 +125,10 @@ def menu():
             menu()
 
         elif(selection==4):
+            app.search_censys()
+            menu()
+
+        elif(selection==5):
             sys.exit(0)
 
         else:
