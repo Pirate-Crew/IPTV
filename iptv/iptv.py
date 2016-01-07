@@ -43,9 +43,9 @@ while True:
     elif choosenMenu == 3:
         language = str(raw_input("What language do you need? (it, en, es): "))
         if cr.change_language(language):
-        	print colored.green("Language changed")
-		else:
-			print colored.red("Cannot change language to " + language)
+            print colored.green("Language changed")
+        else:
+            print colored.red("Language not changes, the file language for " + language + " does not exists")
     elif choosenMenu == 4:
         result =  cr.search_accounts()
         print colored.green(result)
