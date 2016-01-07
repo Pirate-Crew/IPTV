@@ -1,23 +1,25 @@
 # IPTV
 
+## Disclaimer
+
    This program is just a demonstration. DO NOT USE IT FOR PERSONAL purpose
-   
 
 ## What is this?
 
-IPTV is a simple python script that let you crawl the search engines
+IPTV is a simple python program that let you crawl the search engines
 in order to fetch those sites that stream illegal tv programs.
 
 This script leverage the fact the a lot of those sites use the same
 CMS to create the web application and sharing the service, behind a CMS there's
 always some exploits.
 We are using one simple exploit to grab and crawl the site's url and use for our
-purpose.
+purpose, we have discovered a lot of those exploits.
 
 ## Ethical Dilemma
 
 Even though those services are illegal, stealing from a thief is still stealing.
 
+Using this program for your personal use is illegal.
 
 ## External dependencies
 
@@ -36,7 +38,7 @@ on Ubuntu/Debian `sudo apt-get install pyqt4-dev-tools`
 * run `python iptv.py`
 * Use the application menu to do stuff
 
-![alt tag](screenshot/cattura.png)
+![alt tag](screenshot/cli.png)
 
 ## How to use the GUI version
 
@@ -46,9 +48,17 @@ on Ubuntu/Debian `sudo apt-get install pyqt4-dev-tools`
 * run `python iptv_gui.py`
 * you can see an example of the GUI in the image below
 
-![alt tag](screenshot/demo.jpg)
+![alt tag](screenshot/cli.jpg)
 
 ## Compatibility
 
 This program work on Window, Linux, Mac OSX and BSD. The only requirement is
 python, better if python 2!
+
+## License
+
+See [the license](LICENSE) for further details
+
+## Contributing
+
+Contributes are welcome and much appreciated, please read the [contributing guide](CONTRIBUTING.md) for further information.
