@@ -13,7 +13,7 @@ def censys(self, page=1):
 	if API_URL == "":
 		segale_rosso = colored ('[*]','red')
 		print (segale_rosso + " require The Censys API, https://www.censys.io/api ")
-	else: 	
+	else:
 		q = "Xtream Codes v1.0.59.5 Copyright 2014-2015"
 		params = {'query' : q, 'page' : page}
 
