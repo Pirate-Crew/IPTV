@@ -14,7 +14,7 @@ def menu():
     print ""
     print colored.yellow("################")
     print colored.yellow("##### IPTV #####")
-    print colored.yellow("##### v1.2 #####")
+    print colored.yellow("##### v1.2.1 ###")
     print colored.yellow("################")
     print ""
     print colored.blue("Menu")
