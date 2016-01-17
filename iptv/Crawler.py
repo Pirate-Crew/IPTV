@@ -14,6 +14,8 @@ Claudio Ludovico (@Ludo237)
 Pinperepette (@Pinperepette)
 """
 class Crawler(object):
+    # version
+    version = "1.2.3"
     # output default directory
     outputDir = "output"
     # language default directory
