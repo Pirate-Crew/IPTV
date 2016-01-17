@@ -14,7 +14,7 @@ def menu():
     print ""
     print colored.yellow("################")
     print colored.yellow("##### IPTV #####")
-    print colored.yellow("##### v1.2.2 ###")
+    print colored.yellow("##### v" + cr.version + " ###")
     print colored.yellow("################")
     print ""
     print colored.blue("Menu")
@@ -22,8 +22,9 @@ def menu():
     print "1 - Search for some Servers"
     print "2 - Look at the servers list"
     print "3 - Select language, default is Italian"
-    print "4 - Brute force random server"
-    print "5 - Brute force specific server"
+    print "4 - Brute force random server from the list"
+    print "5 - Brute force specific server from the list"
+    print "6 - Provide a random server to attack"
     print ""
 
 while True:
@@ -43,19 +44,23 @@ while True:
     elif choosenMenu == 3:
         language = str(raw_input("What language do you need? (it, en, es): "))
         if cr.change_language(language):
-            print colored.green("Language changed")
+            print colored.green("Language changed, the system now will attack the servers with " + language + "txt.")
         else:
             print colored.red("Language not changes, the file language for " + language + " does not exists")
     elif choosenMenu == 4:
         result =  cr.search_accounts()
         print colored.green(result)
     elif choosenMenu == 5:
-        index = int(raw_input("Please provide the number near the URLs founded: "))
         try:
+            index = int(raw_input("Please provide the number near the URLs founded: "))
             url = cr.parsedUrls[index]
             result = cr.search_accounts(url)
             print colored.green(result)
         except IndexError as e:
             print colored.red("No URL founded at index: " + str(index))
+        except ValueError as e:
+            print colored.red("You have entered a wrong value, please provide a NUMBER. Use option 2 first")
+    elif choosenMenu == 6:
+        print colored.blue("coming soon...")
     else:
         print colored.red("Option not recognized")
