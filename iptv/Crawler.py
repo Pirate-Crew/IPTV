@@ -12,6 +12,7 @@ Class that handles the crawling process that fetch accounts on illegal IPTVs
 Authors:
 Claudio Ludovico (@Ludo237)
 Pinperepette (@Pinperepette)
+Arm4x (@Arm4x)
 """
 class Crawler(object):
     # version
