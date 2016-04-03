@@ -2,7 +2,7 @@
 
 ## Disclaimer
 
-   This program is just a demonstration. It's not intended for personal purpose.
+   This program is just a demonstration. **It's not intended** for personal purpose.
 
 ## What is this?
 
