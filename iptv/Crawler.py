@@ -83,7 +83,7 @@ class Crawler(object):
                 url = random.choice(self.parsedUrls)
             fileName = self.languageDir + "/" + self.language + ".txt"
             fileLength = self.file_length(fileName)
-            fileLength = fileLength * fileLength;
+            fileLength = fileLength * fileLength
             progressBar = pyprind.ProgBar(fileLength, title = "Fetching account from " + url + " this might take a while.", stream = 1, monitor = True)
             foundedAccounts = 0
             with open(fileName) as f:
