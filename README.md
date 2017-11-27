@@ -1,4 +1,4 @@
-# IPTV
+# IPTV. [DEPRECATED] 
 
 ## Disclaimer
 
