@@ -34,7 +34,7 @@ on Ubuntu/Debian `sudo apt-get install pyqt4-dev-tools`
 
 * Clone the repository `git clone git@github.com:Pirate-Crew/IPTV.git`
 * `cd` into `iptv`
-* run `pip install -r requirements.txt` in order to get the full dependencies
+* run `pip3 install -r requirements.txt` in order to get the full dependencies
 * run `python iptv.py`
 * Use the application menu to do stuff
 
@@ -42,9 +42,9 @@ on Ubuntu/Debian `sudo apt-get install pyqt4-dev-tools`
 
 ## How to use the GUI version
 
-* Clone the repository `git clone git@github.com:Pinperepette/IPTV.git`
+* Clone the repository `git clone https://github.com/Pirate-Crew/IPTV.git`
 * `cd` into `iptv`
-* run `pip install -r requirements.txt` in order to get the full dependencies
+* run `pip3 install -r requirements.txt` in order to get the full dependencies
 * run `python iptv_gui.py`
 * you can see an example of the GUI in the image below
 
