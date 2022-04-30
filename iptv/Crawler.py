@@ -83,7 +83,7 @@ class Crawler(object):
                 url = random.choice(self.parsedUrls)
             fileName = self.languageDir + "/" + self.language + ".txt"
             fileLength = self.file_length(fileName)
-            progressBar = pyprind.ProgBar(fileLength, title = "Fetching account from " + url + " this might take a while.", stream = 1, monitor = True)
+            progressBar = pyprind.ProgBar(fileLength, title = "Fetching accounts from " + url + " this might take a while.", stream = 1, monitor = True)
             foundedAccounts = 0
             with open(fileName) as f:
                 rows = f.readlines()
@@ -105,13 +105,13 @@ class Crawler(object):
             # Remove the current used url in order to avoid to parse it again
             self.parsedUrls.remove(url)
             if self.foundedAccounts != 0:
-                return "Search done, account founded on " + url + ": " + str(self.foundedAccounts)
+                return "Search done, account found on " + url + ": " + str(self.foundedAccounts)
             else:
                 return "No results for " + url
         except IOError:
-            return "Cannot open the current Language file. Try another one"
+            return "Couldn't open the current Language file. Try another one"
         except urllib2.HTTPError, e:
-            return "Ops, HTTPError exception here. Cannot fetch the current URL " + str(e.code)
+            return "Ops, HTTPError exception here. Couldn't fetch the current URL " + str(e.code)
         except urllib2.URLError, e:
             return "Ops, the URL seems broken." + str(e.reason)
         except Exception:
